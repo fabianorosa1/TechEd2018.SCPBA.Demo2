@@ -1,0 +1,20 @@
+{
+  "name": "TechEd2018.SCPBA.Demo2",
+  "description": "Reference application built according to the CAP model",
+  "version": "1.0.0",
+  "dependencies": {
+    "@sap/cds": ">=2.4"
+  },
+  "scripts": {
+    "build": "cds build/all --clean"
+  },
+  "cds": {
+    "service": {
+      "model": "js-srv/"
+    },
+    "data": {
+      "model": "hdb/"
+    }
+  },
+  "private": true
+}

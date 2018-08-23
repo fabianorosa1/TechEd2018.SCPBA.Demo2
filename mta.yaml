@@ -1,0 +1,33 @@
+ID: TechEd2018.SCPBA.Demo2
+_schema-version: '3.1'
+version: 0.0.1
+modules:
+  - name: hdb
+    type: hdb
+    path: hdb
+    parameters:
+      memory: 256M
+      disk-quota: 256M
+    requires:
+      - name: TechEd2018.SCPBA.Demo2-hdi-container
+  - name: js-srv
+    type: nodejs
+    path: js-srv
+    parameters:
+      memory: 512M
+      disk-quota: 256M
+    requires:
+      - name: TechEd2018.SCPBA.Demo2-hdi-container
+    provides:
+      - name: js_srv_api
+        properties:
+          url: '${default-url}'
+resources:
+  - name: TechEd2018.SCPBA.Demo2-hdi-container
+    parameters:
+      config:
+         schema: TECHED2018_SCPBA2
+    properties:
+      hdi-container-name: '${service-name}'
+    type: com.sap.xs.hdi-container
+
